@@ -1,0 +1,59 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2639
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red172\green172\blue193;\red79\green123\blue61;\red26\green26\blue41;
+\red70\green137\blue204;\red212\green212\blue212;\red167\green197\blue152;\red194\green126\blue101;\red187\green97\blue44;
+\red45\green175\blue118;\red237\green114\blue173;\red140\green108\blue11;\red31\green133\blue64;\red13\green102\blue149;
+}
+{\*\expandedcolortbl;;\cssrgb\c72941\c73333\c80000;\cssrgb\c37647\c54510\c30588;\cssrgb\c13333\c13725\c21176;
+\cssrgb\c33725\c61176\c83922;\cssrgb\c86275\c86275\c86275;\cssrgb\c70980\c80784\c65882;\cssrgb\c80784\c56863\c47059;\cssrgb\c78824\c45882\c22353;
+\cssrgb\c19608\c72941\c53725;\cssrgb\c95294\c54118\c73333;\cssrgb\c61961\c49412\c3137;\cssrgb\c12941\c58039\c31765;\cssrgb\c0\c47843\c65098;
+}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf3 \cb4 //SPDX-License-Identifier: Unlicense\cf2 \cb1 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf5 \cb4 pragma\cf2  \cf5 solidity\cf2  \cf6 ^\cf7 0.8.0\cf6 ;\cf2 \cb1 \
+\
+\cf5 \cb4 import\cf2  \cf8 "@openzeppelin/contracts/utils/Counters.sol"\cf6 ;\cf2 \cb1 \
+\cf5 \cb4 import\cf2  \cf8 "@openzeppelin/contracts/token/ERC721/ERC721.sol"\cf6 ;\cf2 \cb1 \
+\cf5 \cb4 import\cf2  \cf8 "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol"\cf6 ;\cf2 \cb1 \
+\
+\cf5 \cb4 contract\cf2  NFT_RealEstate \cf5 is\cf2  ERC721URIStorage \cf6 \{\cf2 \cb1 \
+\
+\cb4     \cf5 using\cf2  Counters \cf9 for\cf2  Counters\cf6 .\cf2 Counter\cf6 ;\cf2 \cb1 \
+\
+\cb4     Counters\cf6 .\cf2 Counter \cf10 private\cf2  _tokenIds\cf6 ;\cf2 \cb1 \
+\
+\
+\cb4     \cf11 constructor\cf6 ()\cf2  ERC721\cf6 (\cf8 "Real Estate"\cf6 ,\cf2  \cf8 "REAL"\cf6 )\cf2  \cf6 \{\}\cf2 \cb1 \
+\
+\
+\cb4     \cf5 function\cf2  mint\cf6 (\cf5 string\cf2  \cf12 memory\cf2  tokenURI\cf6 )\cf2  \cf10 public\cf2  \cf13 returns\cf2  \cf6 (\cf5 uint256\cf6 )\cf2  \cf6 \{\cf2 \cb1 \
+\
+\cb4         _tokenIds\cf6 .\cf2 increment\cf6 ();\cf2 \cb1 \
+\
+\
+\cb4         \cf5 uint256\cf2  newItemId \cf6 =\cf2  _tokenIds\cf6 .\cf2 current\cf6 ();\cf2 \cb1 \
+\
+\cb4         _mint\cf6 (\cf14 msg\cf6 .\cf2 sender\cf6 ,\cf2  newItemId\cf6 );\cf2 \cb1 \
+\
+\cb4         _setTokenURI\cf6 (\cf2 newItemId\cf6 ,\cf2  tokenURI\cf6 );\cf2 \cb1 \
+\
+\
+\cb4         \cf13 return\cf2  newItemId\cf6 ;\cf2 \cb1 \
+\cb4     \cf6 \}\cf2 \cb1 \
+\
+\
+\cb4     \cf5 function\cf2  totalSupply\cf6 ()\cf2  \cf10 public\cf2  \cf10 view\cf2  \cf13 returns\cf2  \cf6 (\cf5 uint256\cf6 )\cf2  \cf6 \{\cf2 \cb1 \
+\
+\cb4         \cf13 return\cf2  _tokenIds\cf6 .\cf2 current\cf6 ();\cf2 \cb1 \
+\cb4     \cf6 \}\cf2 \cb1 \
+\cf6 \cb4 \}\cf2 \cb1 \
+\
+}
